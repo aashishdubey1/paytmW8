@@ -8,7 +8,7 @@ import ButtonWarning from '../components/ButtonWarning'
 const Signin = () => {
   return (
     <div className='h-screen w-full flex justify-center items-center bg-neutral-400'>
-        <section className='rounded bg-white w-74 px-8 py-4 '>
+        <section className='rounded-lg bg-white w-74 px-8 py-4 '>
             <Heading label={"Sign In"} />
             <SubHeading label={"Enter your credentials to access your account"} />
             <InputBox label={"Email"} placeholder={"johndoe@example.com"} />
