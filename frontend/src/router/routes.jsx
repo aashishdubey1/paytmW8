@@ -8,7 +8,7 @@ import Signup from '../pages/signup'
 
 export const router = createBrowserRouter([
     {
-        path:'/',
+        path:'/dashboard',
         element:<Dashboard />,
 
     },
