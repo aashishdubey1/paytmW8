@@ -22,7 +22,7 @@ const Signup = () => {
     async function handleSubmit(){
         // console.log(data);
         try{
-            const response = await axios.post(import.meta.env.VITE_API_URL,data)
+            const response = await axios.post(import.meta.env.VITE_SIGNUP_API_URL,data)
             console.log(response.data);
             const token = response.data.token;
             console.log(token)
