@@ -1,21 +1,29 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Users = () => {
-
-    const [users,setUsers] = useState([
-        {
-            name:"Aashish Dubey",
-            email:"aashish@gmail.com",
-            _id:1,
-        },
-    ])
+    const [users,setUsers] = useState([])
+    const [filter,setFilter] = useState('')
     // console.log("navigate =>",navigate)
+    useEffect(() => {
+        async function fetchData() {
+          // You can await here
+          const response = await axios.get(`${import.meta.env.VITE_GET_USERS_API_URL}?filter=${filter}`);
+        //   console.log(response.data.users)
+          setUsers(response.data.users);
+
+        }
+        fetchData();
+      }, [filter]);
+console.log('users=>',users)
+
+
   return (
     <div>
         <div className='text-xl font-semibold mt-8 mb-4'>Users</div>
-        <input placeholder='Search Users...' className='py-2 px-3 w-full border border-slate-400 mb-4' />
-        {users.map((e)=><User name={e.name} />)}
+        <input onChange={(e)=>setFilter(e.target.value)} placeholder='Search Users...' className='py-2 px-3 w-full border border-slate-400 mb-4' />
+        {users.map((e,i)=><User name={e.firstname} key={i} />)}
     </div>
   )
 }

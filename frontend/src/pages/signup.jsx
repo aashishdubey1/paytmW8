@@ -25,7 +25,7 @@ const Signup = () => {
             const response = await axios.post(import.meta.env.VITE_SIGNUP_API_URL,data)
             console.log(response.data);
             const token = response.data.token;
-            console.log(token)
+            // console.log(token)
             localStorage.setItem("token",token)
         }catch(err){
             console.log("Error Sending Post req",err.message)
